@@ -51,7 +51,15 @@ run_this = BashOperator(
 )
 # [END howto_operator_bash]
 
-run_this >> run_this_last
+# [START date_operator_bash]
+run_that = BashOperator(
+    task_id='print_date',
+    bash_command='date',
+    dag=dag,
+)
+# [END date_operator_bash]
+
+run_this >> run_that >> run_this_last
 
 for i in range(3):
     task = BashOperator(
