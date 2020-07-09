@@ -56,6 +56,7 @@ run_that = BashOperator(
     task_id='print_date',
     bash_command='date',
     dag=dag,
+    
 )
 # [END date_operator_bash]
 
